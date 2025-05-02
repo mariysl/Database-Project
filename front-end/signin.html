@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StudyBud - Find a Study Session</title>
+  <title>Sign In - StudyBud</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" type="image/svg+xml">
@@ -73,21 +73,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .sessions-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    .session-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      color: white;
-      transition: transform 0.3s ease;
-    }
-    .session-card:hover {
-      transform: scale(1.03);
-    }
   </style>
 </head>
 <body class="flex flex-col">
@@ -96,43 +81,50 @@
       <h1 class="text-3xl logo-text">StudyBud</h1>
     </div>
     <nav class="space-x-6">
-      <a href="index.html" class="text-blue-600 font-medium border-b-2 border-blue-600 nav-link">Home</a>
+      <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Home</a>
       <a href="create-room.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Host a Session</a>
-      <a href="signin.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Sign In</a>
+      <a href="signin.html" class="text-blue-600 font-medium border-b-2 border-blue-600 nav-link">Sign In</a>
       <a href="signup.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Sign Up</a>
     </nav>
   </header>
 
-  <main class="flex-grow px-4 py-12">
-    <section class="search glass-card p-8 max-w-2xl mx-auto animate-fadeIn">
-      <h2 class="text-3xl font-bold text-white mb-6 text-center">Find a Study Session</h2>
-      <div class="flex space-x-4">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search by keyword, hashtag, or topic..."
-          class="flex-grow p-3 rounded-lg bg-white bg-opacity-10 text-white placeholder-gray-300 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-        <button
-          id="searchBtn"
-          class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium btn-primary"
-        >
-          Search
-        </button>
-      </div>
-    </section>
-
-    <section class="sessions max-w-5xl mx-auto mt-12" id="sessions">
-      <h2 class="text-2xl font-semibold text-white mb-6">Available Sessions</h2>
-      <div class="sessions-grid">
-        <!-- Placeholder for dynamic sessions -->
-        <div class="session-card">
-          <h3 class="text-lg font-medium">Sample Session</h3>
-          <p class="text-gray-200">Topic: Calculus</p>
-          <p class="text-gray-300 text-sm">Hosted by: StudyStar123</p>
+  <main class="flex-grow flex items-center justify-center px-4 py-12">
+    <section class="sign-in glass-card p-8 w-full max-w-lg animate-fadeIn">
+      <h2 class="text-3xl font-bold text-white mb-6 text-center">Sign In to StudyBud</h2>
+      <form id="signInForm" class="space-y-5">
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-100">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="e.g., student@example.com"
+            required
+            class="w-full mt-1 p-3 rounded-lg bg-white bg-opacity-10 text-white placeholder-gray-300 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
         </div>
-        <!-- More sessions will be added dynamically -->
-      </div>
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-100">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+            class="w-full mt-1 p-3 rounded-lg bg-white bg-opacity-10 text-white placeholder-gray-300 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-sm text-blue-300 hover:text-blue-500 transition">Forgot Password?</a>
+          <p class="text-sm text-gray-100">
+            New here? <a href="signup.html" class="text-blue-300 hover:text-blue-500 transition">Sign Up</a>
+          </p>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium btn-primary"
+        >
+          Sign In
+        </button>
+      </form>
     </section>
   </main>
 
@@ -141,13 +133,15 @@
   </footer>
 
   <script>
-    document.getElementById('searchBtn').addEventListener('click', () => {
-      const query = document.getElementById('searchInput').value;
-      if (query) {
-        alert(`Searching for: ${query} (Placeholder functionality)`);
-        // Add logic to handle search (e.g., API call to fetch sessions)
+    document.getElementById('signInForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      if (email && password) {
+        alert('Sign-in successful! (Placeholder functionality)');
+        // Add logic to handle sign-in (e.g., API call to authenticate)
       } else {
-        alert('Please enter a search query.');
+        alert('Please fill in all fields.');
       }
     });
   </script>
