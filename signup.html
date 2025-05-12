@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - StudyBud</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" type="image/svg+xml">
+  <style>
+    body {
+      background: linear-gradient(135deg, #7C3AED, #3B82F6, #10B981);
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-primary {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary:hover {
+      transform: scale(1.05);
+      background-color: #1D4ED8;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s ease, height 0.4s ease;
+    }
+    .btn-primary:hover::after {
+      width: 200px;
+      height: 200px;
+    }
+    input, label {
+      transition: all 0.3s;
+    }
+    input:focus {
+      border-color: #3B82F6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+    }
+    .nav-link {
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #3B82F6;
+      transform: translateY(-2px);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.6s ease-out;
+    }
+    .logo-text {
+      font-weight: 700;
+      background: linear-gradient(90deg, #3B82F6, #10B981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="flex flex-col">
+  <header class="bg-white shadow-lg py-4 px-6 flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <a class="text-3xl logo-text" href="index.html">StudyBud</a>
+    </div>
+    <nav class="space-x-6">
+      <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Home</a>
+      <a href="create-room.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Host a Session</a>
+      <a href="signin.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Sign In</a>
+      <a href="signup.html" class="text-blue-600 font-medium border-b-2 border-blue-600 nav-link">Sign Up</a>
+    </nav>
+  </header>
+
+  <main class="flex-grow flex items-center justify-center px-4 py-12">
+    <section class="sign-up glass-card p-8 w-full max-w-lg animate-fadeIn">
+      <h2 class="text-3xl font-bold text-white mb-6 text-center">Join StudyBud</h2>
+      <form id="signUpForm" class="space-y-5">
+        <div>
+          <label for="username" class="block text-sm font-medium text-gray-100">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="e.g., StudyStar123"
+            required
+            class="w-full mt-1 p-3 rounded-lg bg-white bg-opacity-10 text-white placeholder-gray-300 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-100">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="e.g., student@example.com"
+            required
+            class="w-full mt-1 p-3 rounded-lg bg-white bg-opacity-10 text-white placeholder-gray-300 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-100">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Create a password"
+            required
+            class="w-full mt-1 p-3 rounded-lg bg-white bg-opacity-10 text-white placeholder-gray-300 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+        <div>
+          <label for="confirmPassword" class="block text-sm font-medium text-gray-100">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm your password"
+            required
+            class="w-full mt-1 p-3 rounded-lg bg-white bg-opacity-10 text-white placeholder-gray-300 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+        <div class="text-sm text-gray-100">
+          Already have an account? <a href="signin.html" class="text-blue-300 hover:text-blue-500 transition">Sign In</a>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium btn-primary"
+        >
+          Sign Up
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 text-white text-center py-4">
+    <p>© 2025 StudyBud. Connecting people one study session at a time.</p>
+  </footer>
+
+  <script>
+    document.getElementById('signUpForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      if (username && email && password && confirmPassword) {
+        if (password === confirmPassword) {
+          alert('Sign-up successful! (Placeholder functionality)');
+          // Add logic to handle sign-up (e.g., API call to register user)
+        } else {
+          alert('Passwords do not match.');
+        }
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+  </script>
+</body>
+</html>
