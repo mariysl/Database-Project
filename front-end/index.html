@@ -93,13 +93,14 @@
 <body class="flex flex-col">
   <header class="bg-white shadow-lg py-4 px-6 flex justify-between items-center">
     <div class="flex items-center space-x-3">
-      <h1 class="text-3xl logo-text">StudyBud</h1>
+      <a class="text-3xl logo-text" href="index.html">StudyBud</a>
     </div>
     <nav class="space-x-6">
       <a href="index.html" class="text-blue-600 font-medium border-b-2 border-blue-600 nav-link">Home</a>
       <a href="create-room.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Host a Session</a>
-      <a href="signin.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Sign In</a>
-      <a href="signup.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Sign Up</a>
+      <a id="usertab" style="display: none;" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Hello </a> <!--Added tab to display 'Hello user after signin'-->
+      <a id="signintab" style="display: inline;" href="signin.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Sign In</a>
+      <a id="signuptab" style="display: inline;" href="signup.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Sign Up</a>
     </nav>
   </header>
 
@@ -110,7 +111,7 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="Search by keyword, hashtag, or topic..."
+          placeholder="Search by Room Name or topic..."
           class="flex-grow p-3 rounded-lg bg-white bg-opacity-10 text-white placeholder-gray-300 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
         <button
@@ -140,16 +141,10 @@
     <p>© 2025 StudyBud. Connecting people one study session at a time.</p>
   </footer>
 
-  <script>
-    document.getElementById('searchBtn').addEventListener('click', () => {
-      const query = document.getElementById('searchInput').value;
-      if (query) {
-        alert(`Searching for: ${query} (Placeholder functionality)`);
-        // Add logic to handle search (e.g., API call to fetch sessions)
-      } else {
-        alert('Please enter a search query.');
-      }
-    });
+  <script src= 'script.js'> // added js script instead of embedding it into the HTML
+    
+    
   </script>
 </body>
 </html>
+
