@@ -78,7 +78,7 @@
 <body class="flex flex-col">
   <header class="bg-white shadow-lg py-4 px-6 flex justify-between items-center">
     <div class="flex items-center space-x-3">
-      <h1 class="text-3xl logo-text">StudyBud</h1>
+      <a class="text-3xl logo-text" href="index.html">StudyBud</a>
     </div>
     <nav class="space-x-6">
       <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium nav-link">Home</a>
@@ -113,12 +113,22 @@
           >
         </div>
         <label class="flex items-center space-x-2 text-gray-100">
-          <input
+          <input 
+            id="Privateyes"
             type="checkbox"
             class="h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
           >
           <span>Private Session (Invite Only)</span>
         </label>
+        <div id="privateInput" style="display: none;"> <!--Added input for private room access code as well as js function to change stlye once -->
+          <label for="subject" class="block text-sm font-medium text-gray-100">Enter Private room key</label>
+            <input
+              type="text"
+              placeholder="e.g., 8594"
+              required
+              class="w-full mt-1 p-3 rounded-lg bg-white bg-opacity-10 text-white placeholder-gray-300 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+        </div> 
         <button
           type="submit"
           class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium btn-primary"
@@ -133,12 +143,12 @@
     <p>© 2025 StudyBud. Connecting people one study session at a time.</p>
   </footer>
 
-  <script>
-    document.getElementById('createRoomForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Study session created! (Placeholder functionality)');
-      // Add logic to handle form submission (e.g., API call to create room)
-    });
+  <script src="script.js">
+    // document.getElementById('createRoomForm').addEventListener('submit', (e) => {
+    //   e.preventDefault();
+    //   alert('Study session created! (Placeholder functionality)');
+    //   // Add logic to handle form submission (e.g., API call to create room)
+    // });
   </script>
 </body>
 </html>
