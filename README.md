@@ -1,6 +1,6 @@
 # Database-Project
 STUDYBUD – Connecting people one study session at a time
-Authors: Isaac Ndubuisi, Amari Gray, Jelani Lawrence, Tyee Tuberville.
+Authors: Isaac Ndubuisi, Amari Gray, Jelani Lawrence.
 Studybud aims to be a web based application designed to help students find people studying
 similar subject or topics as them and partner up with them. It enables things like real-time live
 chats or “huddles” with people studying the same course, subject or topic. This app aims to
